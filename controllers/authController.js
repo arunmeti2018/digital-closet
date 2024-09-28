@@ -82,7 +82,7 @@ const loginController = async (req, res) => {
 
             const token = jwt.sign({ email }, process.env.JWT_SECRET_KEY, { expiresIn: "5h" });
             res.cookie("token", token);
-            res.status(200).redirect("/auth/home");
+            res.status(200).redirect("/user/home");
         }
 
     } catch (error) {

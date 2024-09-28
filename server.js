@@ -16,9 +16,15 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser());
 dotenv.config();
 
-app.get("/auth", (req, res) => {
-    res.render("login");
+app.get("/", (req, res) => {
+    res.render("landingPage")
 })
+app.get("/login", (req, res) => {
+    res.render("login")
+})
+// app.get("/auth", (req, res) => {
+//     res.render("login");
+// })
 app.use("/auth", require("./routes/authRoute"));
 app.use("/user", require("./routes/userRoute"))
 
