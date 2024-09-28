@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path")
 const app = express();
 const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser")
 const { connectDataBase } = require("./config/dataBase");
 
 
@@ -12,13 +13,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-
+app.use(cookieParser());
 dotenv.config();
 
 app.get("/auth", (req, res) => {
     res.render("login");
 })
 app.use("/auth", require("./routes/authRoute"));
+app.use("/user", require("./routes/userRoute"))
 
 
 try {
