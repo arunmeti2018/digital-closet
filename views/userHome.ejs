@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WardrobeAI Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+
+    <script>
+        const user =<%- JSON.stringify(user) %>
+        const items =<%- JSON.stringify(items) %>
+        const favorites =<%- JSON.stringify(favorites) %>
+        const totalItems =<%- JSON.stringify(totalItems) %>
+
+    </script>
+
+
+    </script>
+    <link rel="stylesheet" href="/css/userHome.css"> <!-- Link to CSS file -->
+</head>
+
+<body>
+    <div class="container">
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <aside class="sidebar" id="sidebar">
+            <h2>WardrobeAI</h2>
+            <nav class="sidebar-nav">
+                <button id="closetBtn"><i class="ri-t-shirt-line"></i> My Closet</button>
+                <button id="outfitsBtn"><i class="ri-shirt-line"></i> Outfits</button>
+                <button id="sustainabilityBtn"><i class="ri-leaf-line"></i> Sustainability</button>
+                <button id="activityBtn"><i class="ri-history-line"></i> Activity</button>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header>
+                <div class="header-content">
+                    <h1>Welcome back, <span id="username">
+                            <%=user.userName%>
+
+                        </span>!</h1>
+                    <div class="user-actions">
+                        <button class="btn btn-outline"><i class="ri-search-line"></i> Find Item</button>
+                        <button class="btn btn-primary"><i class="ri-add-line"></i> Add Item</button>
+                        <div class="avatar" id="userAvatar">R</div>
+                        <button class="btn btn-outline" id="logoutButton"><i class="ri-logout-box-r-line"></i>
+                            Logout</button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="weather-widget">
+                <h3>Today's Weather</h3>
+                <div class="weather-info">
+                    <div>
+                        <p id="temperature">25°C</p>
+                        <p id="weather-description">Partly Cloudy</p>
+                    </div>
+                    <i class="ri-sun-cloudy-fill weather-icon"></i>
+                </div>
+            </div>
+
+            <div class="outfit-suggestion">
+                <h3>Today's Outfit Suggestion</h3>
+                <p>Based on the weather and your style preferences:</p>
+                <div class="outfit-items">
+                    <span class="outfit-item">Blue Jeans</span>
+                    <span class="outfit-item">White T-shirt</span>
+                    <span class="outfit-item">Light Jacket</span>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h4>Total Items</h4>
+                    <p id="totalItems">
+                        <%=items.length%>
+                    </p>
+                </div>
+                <div class="stat-card">
+                    <h4>Outfits Created</h4>
+                    <p id="outfitsCreated"><%=items.categary%></p>
+                </div>
+                <div class="stat-card">
+                    <h4>Sustainability Score</h4>
+                    <p id="sustainabilityScore">85%</p>
+                </div>
+            </div>
+
+            <div class="dashboard-content">
+                <div class="card">
+                    <h3>My Closet</h3>
+                    <p>Manage your wardrobe</p>
+                    <p class="text-2xl font-bold"><span id="itemCount">items.length</span> Items</p>
+                    <button class="btn btn-primary" >View Closet</button>
+                </div>
+                <div class="card">
+                    <h3>Outfit Creator</h3>
+                    <p>Mix and match your clothes</p>
+                    <button class="btn btn-primary">Create New Outfit</button>
+                </div>
+                <div class="card">
+                    <h3>Sustainability Insights</h3>
+                    <p>Track your eco-impact</p>
+                    <p>You've saved <%=items.length*0.1%> kg of CO2 this month!</p>
+                    <button class="btn btn-outline">View Details</button>
+                </div>
+                <div class="card">
+                    <h3>Recent Activity</h3>
+                    <p>Your latest wardrobe updates</p>
+                    <ul class="activity-list">
+                        <li>Added 2 new items. - <%=items[item.length-1].createdAt days ago</li>
+                        <li>Created summer vacation outfit - 1 week ago</li>
+                        <li>Donated 3 items - 2 weeks ago</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/userHome.js " defer></script> <!-- Link to JavaScript file -->
+</body>
+
+</html>

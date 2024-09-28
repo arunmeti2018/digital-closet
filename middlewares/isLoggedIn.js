@@ -10,7 +10,7 @@ async function isLoggedInMiddleware(req, res, next) {
             return res.status(401).render("login");
         }
 
-    
+
         let decoded = jwt.verify(token, process.env.JWT_SECRET_KEY)
         const email = decoded.email;
 
@@ -18,8 +18,8 @@ async function isLoggedInMiddleware(req, res, next) {
 
 
         const user = await userModel.findOne({ email }); // Assuming `decoded.id` is the user ID
-       
         req.user = user;
+        console.log(req.id);
     } catch (error) {
         res.status(500).send({
             success: false,

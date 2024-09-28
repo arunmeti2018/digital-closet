@@ -1,15 +1,17 @@
 const express = require("express");
 
 const { isLoggedInMiddleware } = require("../middlewares/isLoggedIn");
-const { logoutController } = require("../controllers/userController");
+const { logoutController, homeController } = require("../controllers/userController");
 
 
 const router = express.Router();
 
 
 
-router.get("/home", isLoggedInMiddleware, (req, res) => {
-    res.send("userhome pafe")
-})
+router.get("/home", isLoggedInMiddleware, homeController);
+// router.get("/profile", isLoggedInMiddleware,)
 router.get("/logout", logoutController);
+
+
+
 module.exports = router 
