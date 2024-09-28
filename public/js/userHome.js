@@ -4,9 +4,10 @@
 // Update DOM with user data
 document.addEventListener('DOMContentLoaded', () => {
     const user = window.user;
-    document.getElementById('username').textContent = user.UserName;
-    document.getElementById('itemCount').textContent = user.items.length;
-    document.getElementById('userAvatar').textContent = user.imageUrl;
+    // document.getElementById('username').textContent = user.userName;
+    // document.getElementById('itemCount').textContent = user.items.length;
+    // document.getElementById('userAvatar').textContent = user.imageUrl;
+    console.log(user.imageUrl)
 });
 console.log(user, items, totalItems);
 
@@ -22,9 +23,7 @@ document.querySelector('.btn-outline:not(#logoutBtn)').addEventListener('click',
     alert('Opening item search...');
 });
 
-document.querySelector('.btn-primary').addEventListener('click', () => {
-    alert('Opening add item form...');
-});
+
 
 // Card buttons
 document.querySelectorAll('.card .btn').forEach(button => {
@@ -55,6 +54,10 @@ document.addEventListener('click', (event) => {
 document.getElementById('logoutButton').onclick = function () {
     // Redirect to the logout route
     window.location.href = '/user/logout';
+};
+document.getElementById('add-item').onclick = function () {
+    // Redirect to the logout route
+    window.location.href = '/items/addItems';
 };
 
 function updateWeather() {

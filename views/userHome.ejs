@@ -46,8 +46,11 @@
                         </span>!</h1>
                     <div class="user-actions">
                         <button class="btn btn-outline"><i class="ri-search-line"></i> Find Item</button>
-                        <button class="btn btn-primary"><i class="ri-add-line"></i> Add Item</button>
-                        <div class="avatar" id="userAvatar">R</div>
+                        <button class="btn btn-primary"><i class="ri-add-line" id="add-item"></i> Add Item</button>
+
+                        <img class="avatar" id="userAvatar" src="<%= user.profile %>" alt="Avatar">
+
+
                         <button class="btn btn-outline" id="logoutButton"><i class="ri-logout-box-r-line"></i>
                             Logout</button>
                     </div>
@@ -79,12 +82,14 @@
                 <div class="stat-card">
                     <h4>Total Items</h4>
                     <p id="totalItems">
-                        <%=items.length%>
+                        <%=totalItems%>
                     </p>
                 </div>
                 <div class="stat-card">
                     <h4>Outfits Created</h4>
-                    <p id="outfitsCreated"><%=items.categary%></p>
+                    <p id="outfitsCreated">
+                        <%=totalItems%>
+                    </p>
                 </div>
                 <div class="stat-card">
                     <h4>Sustainability Score</h4>
@@ -96,8 +101,10 @@
                 <div class="card">
                     <h3>My Closet</h3>
                     <p>Manage your wardrobe</p>
-                    <p class="text-2xl font-bold"><span id="itemCount">items.length</span> Items</p>
-                    <button class="btn btn-primary" >View Closet</button>
+                    <p class="text-2xl font-bold"><span id="itemCount">
+                            <%= totalItems %>
+                        </span> Items</p>
+                    <button class="btn btn-primary">View Closet</button>
                 </div>
                 <div class="card">
                     <h3>Outfit Creator</h3>
@@ -114,9 +121,10 @@
                     <h3>Recent Activity</h3>
                     <p>Your latest wardrobe updates</p>
                     <ul class="activity-list">
-                        <li>Added 2 new items. - <%=items[item.length-1].createdAt days ago</li>
+                        <li>Added 2 new items. - <%= user.createdAt %>days ago</li>
                         <li>Created summer vacation outfit - 1 week ago</li>
-                        <li>Donated 3 items - 2 weeks ago</li>
+                        <li>Donated <%=user.donated %> items - 2 weeks ago</li>
+
                     </ul>
                 </div>
             </div>

@@ -27,7 +27,7 @@ app.get("/login", (req, res) => {
 // })
 app.use("/auth", require("./routes/authRoute"));
 app.use("/user", require("./routes/userRoute"));
-app.use("/item", require("./routes/itemsRoute"));
+app.use("/items", require("./routes/itemsRoute"));
 
 
 try {

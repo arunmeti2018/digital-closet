@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
     profile: {
         type: String,
         required: [true, "profile required"],
-        default: "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-image-182145777.jpg"
+        default: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqr-b4K3tFcRRXLxOuYKOx9kNcWgV80RiaeA&s"
     },
     items: [{
         type: mongoose.Schema.Types.ObjectId,
@@ -35,6 +35,15 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+    Donated: {
+        type: Number,
+        default: 0,
+        
+    },
+    traded: {
+        type: Number,
+        default: 0
+    }
 
 }, { timeStamps: true });
 

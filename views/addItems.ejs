@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Closet</title>
+    <link rel="stylesheet" href="/css/addItems.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>My Closet</h1>
+
+        <form method="post" action="/items/create" id="addItemForm" class="add-item-form">
+            <div class="form-group">
+                <label for="itemName">Item Name:</label>
+                <input type="text" id="itemName" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="itemType">Item Type:</label>
+                <select id="itemType" name="category" required>
+                    <option value="">Select a type</option>
+                    <option value="Top">Top</option>
+                    <option value="Bottom">Bottom</option>
+                    <option value="Dress">Dress</option>
+                    <option value="Outerwear">Outerwear</option>
+                    <option value="Shoes">Shoes</option>
+                    <option value="Accessory">Accessory</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="itemWorn">Times Worn:</label>
+                <input type="number" id="itemWorn" min="0" name="timesWorn" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" required>
+            </div>
+            <div class="form-group">
+                <label for="itemImage" class="file-input-label">Choose Image</label>
+                <input type="file" id="itemImage" accept="image/*" name="imageUrl">
+            </div>
+            <button type="submit" class="btn">Add Item</button>
+        </form>
+
+
+        <h3>Recentlt Added </h3>
+        <div id="recent" class="closet-grid">
+            <div class="closet-item">
+                <img src="<%= item.imageUrl %>" alt="<%= item.name %>">
+                <div class="closet-item-info">
+                    <h2 class="closet-item-name">
+                        <%= item.name %>
+                    </h2>
+                    <p class="closet-item-type">
+                        <%= item.category %>
+                    </p>
+                    <p class="closet-item-worn">Worn: <%= item.timesWorn %> times</p>
+                </div>
+            </div>
+        </div>
+        <h3>All Created outfits</h3>
+
+        <div id="closetGrid" class="closet-grid">
+            <% user.items.forEach(item=> { %>
+                <div class="closet-item">
+                    <img src="<%= item.imageUrl %>" alt="<%= item.name %>">
+                    <div class="closet-item-info">
+                        <h2 class="closet-item-name">
+                            <%= item.name %>
+                        </h2>
+                        <p class="closet-item-type">
+                            <%= item.category %>
+                        </p>
+                        <p class="closet-item-worn">Worn: <%= item.timesWorn %> times</p>
+                    </div>
+                </div>
+                <% }) %>
+        </div>
+    </div>
+
+    <!-- <script src="/js/addItems.js" defer></script> -->
+</body>
+
+</html>

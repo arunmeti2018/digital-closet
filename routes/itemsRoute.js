@@ -8,6 +8,7 @@ const { itemCreateController } = require("../controllers/itemsController");
 const router = express.Router();
 
 router.post("/create", isLoggedInMiddleware, itemCreateController)
-
-
+router.get("/addItems", isLoggedInMiddleware, (req, res) => {
+    res.render("addItems");
+})
 module.exports = router 

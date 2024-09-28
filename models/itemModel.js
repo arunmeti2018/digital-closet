@@ -5,7 +5,7 @@ const itemSchema = new mongoose.Schema({
     category: {
         type: String,
         required: true,
-        enum: ['clothes', 'shoes'],
+
     },
     name: {
         type: String,
@@ -23,12 +23,16 @@ const itemSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
-    lastUpdated: {
+    lastWorn: {
         type: Date,
-        default: Date.now
+
+    },
+    timesWorn: {
+        type: Number,
+        default: 0
     }
     ,
-    user: {
+    userId: {
         type: mongoose.Schema.Types.ObjectId, // The type is ObjectId
         ref: 'user', // Refers to the 'User' model
         required: true
