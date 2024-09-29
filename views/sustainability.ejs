@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothes Recycling Initiative</title>
+    <link rel="stylesheet" href="/css/sustainability.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Clothes Recycling Initiative</h1>
+            <p>Give your old clothes a new life and help the environment</p>
+        </header>
+
+        <section class="benefits">
+            <div class="benefits-text">
+                <h2>Why Recycle Clothes?</h2>
+                <ul>
+                    <li>Reduce textile waste in landfills</li>
+                    <li>Conserve natural resources and energy</li>
+                    <li>Support sustainable fashion practices</li>
+                </ul>
+            </div>
+            <div class="benefits-image">
+                <img src="/placeholder.svg?height=300&width=400" alt="Clothes recycling">
+            </div>
+        </section>
+
+        <section class="pickup-form">
+            <h2>Schedule a Pickup</h2>
+            <form id="pickupForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea id="address" name="address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="date">Pickup Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="clothType">Type of Clothes</label>
+                    <select id="clothType" name="clothType" required>
+                        <option value="">Select type</option>
+                        <option value="casual">Casual Wear</option>
+                        <option value="formal">Formal Wear</option>
+                        <option value="sportswear">Sportswear</option>
+                        <option value="children">Children's Clothes</option>
+                        <option value="accessories">Accessories</option>
+                        <option value="mixed">Mixed</option>
+                    </select>
+                </div>
+                <button type="submit">Schedule Pickup</button>
+            </form>
+        </section>
+
+        <section class="stats">
+            <div class="stat-item">
+                <h3>95%</h3>
+                <p>of textiles can be recycled or reused</p>
+            </div>
+            <div class="stat-item">
+                <h3>700 gal</h3>
+                <p>of water saved by recycling 1 pound of clothes</p>
+            </div>
+            <div class="stat-item">
+                <h3>11M</h3>
+                <p>tons of textiles end up in landfills annually</p>
+            </div>
+        </section>
+    </div>
+
+    <div id="notification" class="notification">
+        Thanks for scheduling the pickup!
+    </div>
+
+    <script src="/js/sustainability.js"></script>
+</body>
+
+</html>

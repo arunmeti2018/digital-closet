@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Clothes Share</title>
+    <link rel="stylesheet" href="/css/community.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>Community Clothes Share</h1>
+    </header>
+    <nav>
+        <a href="#add">Add Clothes</a>
+        <a href="#browse">Browse Clothes</a>
+    </nav>
+    <div class="container">
+        <main>
+            <section id="add">
+                <h2>Add Clothes</h2>
+                <form id="addClothesForm">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" required>
+
+                    <label for="description">Description:</label>
+                    <textarea id="description" required></textarea>
+
+                    <label for="type">Type:</label>
+                    <select id="type" required>
+                        <option value="borrow">Borrow</option>
+                        <option value="lend">Lend</option>
+                        <option value="donate">Donate</option>
+                    </select>
+
+                    <label for="size">Size:</label>
+                    <input type="text" id="size" required>
+
+                    <label for="image">Image URL:</label>
+                    <input type="url" id="image" required>
+
+                    <button type="submit">Add Clothes</button>
+                </form>
+            </section>
+            <section id="browse">
+                <h2>Browse Clothes</h2>
+                <div id="clothesList"></div>
+            </section>
+        </main>
+    </div>
+
+    <button id="openChat">
+        <img src="https://assets.onecompiler.app/42tk2abtc/42tjxw2ue/chatbot.png" style="width: 40px; height: 40px;"
+            alt="Chat with Vastrak" />
+    </button>
+
+    <div id="chatContainer" style="display: none;">
+        <div id="chatHeader">
+            <span>Chat with AI</span>
+            <button id="closeChat">&times;</button>
+        </div>
+        <div id="chatMessages"></div>
+        <form id="chatInput">
+            <input type="text" id="userMessage" placeholder="Type your message..." required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script src="/js/community.js"></script>
+</body>
+
+</html>

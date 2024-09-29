@@ -33,11 +33,11 @@ const itemCreateController = async (req, res) => {
 
         // Push the created item ID to the user's items array
         user.items.push(item._id);
-
+        console.log(user, item)
         await user.save();
 
         // Respond with success
-        return res.status(201).render('addItems', { item, user });
+        return res.status(201).render("create", { user, item });
 
 
     } catch (error) {
@@ -49,5 +49,51 @@ const itemCreateController = async (req, res) => {
         });
     }
 }
+const itemsDisplayController = async (req, res) => {
+    try {
+        const userId = req.user._id;
 
-module.exports = { itemCreateController };
+        const user = await userModel.findById({ _id: userId }).populate('items').populate('favorites');
+        if (!user) {
+            return res.status(404).send({
+                success: false,
+                message: "User not found"
+            });
+
+        }
+        res.render("myCloset", { user, items: user.items });
+    } catch (error) {
+        console.log(error)
+        return res.status(500).send({
+            success: false,
+            message: "items display failed",
+            error
+        });
+    }
+
+}
+const deleteItemController = async (req, res) => {
+    try {
+        const itemId = req.params.id;
+
+        // Check if the item exists
+        const item = await itemModel.findById({ _id: itemId });
+        if (!item) {
+            return res.status(404).json({ message: "Item not found" });
+        }
+
+        // Delete the item
+        await item.findByIdAndDelete({ _id: itemId });
+
+
+        res.status(200).render("userHome");
+    } catch (error) {
+
+        console.error("Error deleting item:", error);
+        res.status(500).json({ message: "An error occurred while deleting the item" });
+    }
+};
+
+
+
+module.exports = { itemCreateController, itemsDisplayController, deleteItemController };

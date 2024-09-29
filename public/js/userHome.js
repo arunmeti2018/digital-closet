@@ -11,12 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 console.log(user, items, totalItems);
 
-// Sidebar navigation
-document.querySelectorAll('.sidebar-nav button').forEach(button => {
-    button.addEventListener('click', () => {
-        alert(`Navigating to ${button.textContent.trim()}`);
-    });
-});
 
 // Header buttons
 document.querySelector('.btn-outline:not(#logoutBtn)').addEventListener('click', () => {
@@ -54,11 +48,30 @@ document.addEventListener('click', (event) => {
 document.getElementById('logoutButton').onclick = function () {
     // Redirect to the logout route
     window.location.href = '/user/logout';
+
+};
+
+document.getElementById('outfitsBtn').onclick = function () {
+
+    window.location.href = '/user/tryOn';
+};
+document.getElementById('activityBtn').onclick = function () {
+
+    window.location.href = '/user/community';
+};
+document.getElementById('sustainabilityBtn').onclick = function () {
+
+    window.location.href = '/user/sustainability';
 };
 document.getElementById('add-item').onclick = function () {
-    // Redirect to the logout route
-    window.location.href = '/items/addItems';
+
+    window.location.href = '/items/create';
 };
+document.getElementById('closetBtn').onclick = function () {
+
+    window.location.href = '/items/myCloset';
+};
+
 
 function updateWeather() {
     const temperatures = [18, 20, 22, 25, 28];

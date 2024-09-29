@@ -2,13 +2,18 @@ const express = require("express");
 
 const { isLoggedInMiddleware } = require("../middlewares/isLoggedIn");
 const { logoutController } = require("../controllers/userController");
-const { itemCreateController } = require("../controllers/itemsController");
+const { itemCreateController, itemsDisplayController, deleteItemController } = require("../controllers/itemsController");
 
 
 const router = express.Router();
-
-router.post("/create", isLoggedInMiddleware, itemCreateController)
-router.get("/addItems", isLoggedInMiddleware, (req, res) => {
-    res.render("addItems");
+router.get("/create", isLoggedInMiddleware, (req, res) => {
+    res.render("addIems")
 })
-module.exports = router 
+router.post("/addItems", isLoggedInMiddleware, itemCreateController)
+
+router.delete("/delete/:id", isLoggedInMiddleware, deleteItemController)
+router.get("/delete/", (req, res) => {
+    res.render("userHome")
+})
+router.get("/myCloset", isLoggedInMiddleware, itemsDisplayController)
+module.exports = router

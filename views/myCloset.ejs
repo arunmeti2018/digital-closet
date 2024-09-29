@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Closet</title>
+    <link rel="stylesheet" href="/css/myCloset.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>My Outfits</h1>
+        <div class="outfit-grid">
+            <% user.items.forEach(function(outfit) { %>
+                <article class="outfit-card" data-id="<%= outfit._id %>">
+                    <img src="<%= outfit.imageUrl %>" alt="<%= outfit.name %>" class="outfit-image">
+                    <button class="action-btn favorite-btn <%= outfit.isFavorite ? 'active' : '' %>"
+                        onclick="toggleFavorite(<%= outfit._id %>)"
+                        aria-label="<%= outfit.isFavorite ? 'Remove from favorites' : 'Add to favorites' %>">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="outfit-details">
+                        <h2 class="outfit-name">
+                            <%= outfit.name %>
+                        </h2>
+                        <p class="outfit-description">
+                            <%= outfit.description %>
+                        </p>
+                        <div class="outfit-meta">
+                            <p>Category: <span class="category">
+                                    <%= outfit.category %>
+                                </span></p>
+                            <p>Times Worn: <span class="times-worn">
+                                    <%= outfit.timesWorn %>
+                                </span></p>
+                        </div>
+                        <div class="outfit-actions">
+                            <button class="action-btn edit-btn" onclick="openEditModal(<%= outfit._id %>)"
+                                aria-label="Edit <%= outfit.name %>">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="action-btn delete-btn"
+                                onclick=" window.location.href = `/items/delete/<%=user._id%>`;"
+                                aria-label="Delete <%= outfit.name %>">
+                                <i class="fas fa-trash-alt"></i> Delete
+                            </button>
+                            <button class="action-btn log-worn-btn" onclick="logWorn(<%= outfit._id %>)"
+                                aria-label="Log worn for <%= outfit.name %>">
+                                <i class="fas fa-tshirt"></i> Worn
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                <% }); %>
+        </div>
+
+    </div>
+
+    <div id="editModal" class="modal" aria-labelledby="modalTitle" aria-describedby="modalDescription" role="dialog">
+        <div class="modal-content">
+            <span class="close" aria-label="Close">&times;</span>
+            <h2 id="modalTitle">Edit Outfit</h2>
+            <form id="editForm" aria-describedby="modalDescription">
+                <input type="hidden" id="editOutfitId">
+                <input type="text" id="editOutfitName" placeholder="Outfit Name" required>
+                <textarea id="editOutfitDescription" placeholder="Outfit Description" required></textarea>
+                <input type="text" id="editOutfitCategory" placeholder="Category" required>
+                <input type="number" id="editOutfitTimesWorn" placeholder="Times Worn" required min="0">
+                <input type="text" id="editOutfitImage" placeholder="Image URL" required>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/myCloset.js" defer></script>
+</body>
+
+</html>
