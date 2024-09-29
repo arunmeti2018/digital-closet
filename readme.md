@@ -16,25 +16,32 @@ This project aims to help users like Ravi manage their wardrobe efficiently, tra
 
 ## **Features**
 
+![Home Page](https://github.com/prajwaldp223/photos/blob/main/home.jpg?raw=true)
+
 1. **Login and Registration Pages**
    - Secure user authentication with login and registration forms.
    - Password encryption using `bcrypt`.
+![login](https://github.com/prajwaldp223/photos/blob/main/register.jpg?raw=true)
+![register](https://github.com/prajwaldp223/photos/blob/main/signin.jpg?raw=true)
    
 2. **User-Specific Home Page**
    - A personalized dashboard showcasing outfit suggestions, item usage analytics, and sustainability scores.
    - Displays upcoming events and recommends outfits based on the user’s wardrobe.
+![](https://github.com/prajwaldp223/photos/blob/main/WhatsApp%20Image%202024-09-29%20at%2010.13.07_35cbc08e.jpg?raw=true)
 
 3. **My Closet - Virtual Wardrobe**
    - A virtual wardrobe where users can add, edit, and organize their clothes by categories.
    - Allows users to upload images of their clothing and track the frequency of usage.
-
+![](https://github.com/prajwaldp223/photos/blob/main/closet.jpg?raw=true)
 4. **Sustainability Features**
    - Provides suggestions for recycling, donating, or repurposing underused items.
    - Displays the user's sustainability score and carbon footprint based on their wardrobe habits.
-
+![](https://github.com/prajwaldp223/photos/blob/main/recycle.jpg?raw=true)
+![](https://github.com/prajwaldp223/photos/blob/main/pickup.jpg?raw=true)
 5. **Community Exchange**
    - A platform where users can trade or donate unused items to others within the community.
    - Includes a donation tracker and nearby donation locations.
+![](https://github.com/prajwaldp223/photos/blob/main/community.jpg?raw=true)
 
 6. **Alerts**
    - Notifications for rarely worn items, upcoming recycling events, and community swap events.
@@ -43,17 +50,19 @@ This project aims to help users like Ravi manage their wardrobe efficiently, tra
 7. **Style Inspiration**
    - Suggests outfit combinations based on the user’s existing wardrobe.
    - Virtual trial feature allows users to see how different items pair together.
+![](https://github.com/prajwaldp223/photos/blob/main/random%20cloths.jpg?raw=true)
    
 8. **Usage Analytics Dashboard**
    - Provides data on most/least worn items, wear frequency, and clothing lifecycle.
    - Offers insights on how to better utilize the wardrobe.
+![](https://github.com/prajwaldp223/photos/blob/main/stats.jpg?raw=true)
 
 9. **AI Chatbot to Monitor the Community**
    - Chatbot provides instant responses to user queries, including recycling schedules, trade requests, and general wardrobe management tips.
 
 10. **Scheduling for Recycle**
     - Users can schedule item pickups for recycling or donation through the app.
-
+![](https://github.com/prajwaldp223/photos/blob/main/pickup.jpg?raw=true)
 ---
 
 ## **Installation and Setup**
