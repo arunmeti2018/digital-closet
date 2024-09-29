@@ -38,6 +38,21 @@ const homeController = async (req, res) => {
         })
     }
 }
+const analyticController = async (req, res) => {
+    try {
+
+        const userId = req.user.id;
+        const user = await userModel.findById({ _id: userId }).populate("items");
+        return res.render("analytics", { user })
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({
+            success: false,
+            message: "analyutical controller failed",
+            error
+        })
+    }
+}
 
 // const profileController = async (req, res) => {
 //     try {
@@ -69,6 +84,6 @@ const homeController = async (req, res) => {
 // }
 module.exports = {
     logoutController,
-
+    analyticController,
     homeController
 }

@@ -37,7 +37,7 @@ const itemCreateController = async (req, res) => {
         await user.save();
 
         // Respond with success
-        return res.status(201).render("create", { user, item });
+        return res.status(201).render("addItems", { user, item });
 
 
     } catch (error) {

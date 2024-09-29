@@ -1,15 +1,11 @@
-// Sample data
-
 
 // Update DOM with user data
 document.addEventListener('DOMContentLoaded', () => {
     const user = window.user;
-    // document.getElementById('username').textContent = user.userName;
-    // document.getElementById('itemCount').textContent = user.items.length;
-    // document.getElementById('userAvatar').textContent = user.imageUrl;
+
     console.log(user.imageUrl)
 });
-console.log(user, items, totalItems);
+
 
 
 // Header buttons
@@ -62,6 +58,10 @@ document.getElementById('activityBtn').onclick = function () {
 document.getElementById('sustainabilityBtn').onclick = function () {
 
     window.location.href = '/user/sustainability';
+};
+document.getElementById('analyticsBtn').onclick = function () {
+
+    window.location.href = '/user/analytics';
 };
 document.getElementById('add-item').onclick = function () {
 

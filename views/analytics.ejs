@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wardrobe Analytics Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/css/analytics.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Wardrobe Analytics Dashboard</h1>
+        <div class="dashboard">
+            <div class="card">
+                <h2>Usage Overview</h2>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-value" id="totalItems">
+                            <%=user.items.length%>
+                        </div>
+                        <div class="stat-label">Total Items</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="avgUsage">
+                            <%=user.items.length /30 %>
+                        </div>
+                        <div class="stat-label">Avg. Uses/Month</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="unusedItems">0</div>
+                        <div class="stat-label">Unused Items</div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="usageChart"></canvas>
+                </div>
+            </div>
+            <div class="card">
+                <h2>Most Worn Items</h2>
+                <ul class="item-list" id="mostWornList"></ul>
+            </div>
+            <div class="card">
+                <h2>Least Worn Items</h2>
+                <ul class="item-list" id="leastWornList"></ul>
+                <div class="suggestion" id="suggestion"></div>
+                <button class="btn" onclick="generateSuggestion()">Get Suggestion</button>
+            </div>
+            <!-- New card for Lended, Borrowed, and Donated Stats -->
+            <div class="card">
+                <h2>Lended, Borrowed, and Donated Stats</h2>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-value" id="lendedItems">
+                            <%=user.donated%>
+                        </div>
+                        <div class="stat-label">Lended</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="borrowedItems">
+                            <%=user.traded%>
+                                < /div>
+                                    <div class="stat-label">Borrowed</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value" id="donatedItems">
+                                <%=user.donated%>
+                                    < /div>
+                                        <div class="stat-label">Donated</div>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="lbdChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script src="/js/analytics.js"></script>
+</body>
+
+</html>

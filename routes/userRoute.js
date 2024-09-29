@@ -1,7 +1,7 @@
 const express = require("express");
 
 const { isLoggedInMiddleware } = require("../middlewares/isLoggedIn");
-const { logoutController, homeController } = require("../controllers/userController");
+const { logoutController, homeController, analyticController } = require("../controllers/userController");
 
 
 const router = express.Router();
@@ -25,4 +25,5 @@ router.get("/sustainability", isLoggedInMiddleware, (req, res) => {
     res.render("sustainability");
 })
 
+router.get("/analytics", isLoggedInMiddleware, analyticController);
 module.exports = router 

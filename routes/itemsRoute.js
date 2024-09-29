@@ -6,14 +6,15 @@ const { itemCreateController, itemsDisplayController, deleteItemController } = r
 
 
 const router = express.Router();
-router.get("/create", isLoggedInMiddleware, (req, res) => {
-    res.render("addIems")
-})
 router.post("/addItems", isLoggedInMiddleware, itemCreateController)
+router.get("/create", isLoggedInMiddleware, (req, res) => {
+    res.render("addItems", { user: req.user ,item: req.user.id })
+})
+
 
 router.delete("/delete/:id", isLoggedInMiddleware, deleteItemController)
 router.get("/delete/", (req, res) => {
-    res.render("userHome")
+    res.render("userHome",)
 })
 router.get("/myCloset", isLoggedInMiddleware, itemsDisplayController)
 module.exports = router
