@@ -22,9 +22,7 @@ app.get("/", (req, res) => {
 app.get("/login", (req, res) => {
     res.render("login")
 })
-// app.get("/auth", (req, res) => {
-//     res.render("login");
-// })
+
 app.use("/auth", require("./routes/authRoute"));
 app.use("/user", require("./routes/userRoute"));
 app.use("/items", require("./routes/itemsRoute"));
