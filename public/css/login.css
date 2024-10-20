@@ -1,18 +1,28 @@
+:root {
+    --primary: #1e40af;
+    --secondary: #3b82f6;
+    --background: #f0f9ff;
+    --text: #1e3a8a;
+    --card: #ffffff;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "poppins", sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
-    background-color: #c9d6ff;
+    background-color: var(--background);
     background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    color: var(--text);
 }
 
 .container {
-    background: #fff;
-    width: 450px;
+    background: var(--card);
+    width: 100%;
+    max-width: 450px;
     padding: 1.5rem;
     margin: 50px auto;
     border-radius: 10px;
@@ -32,7 +42,6 @@ form {
 }
 
 input {
-    color: inherit;
     width: 100%;
     background-color: transparent;
     border: none;
@@ -44,18 +53,17 @@ input {
 .input-group {
     padding: 1% 0;
     position: relative;
-
 }
 
 .input-group i {
     position: absolute;
-    color: black;
+    color: var(--text);
 }
 
 input:focus {
     background-color: transparent;
     outline: transparent;
-    border-bottom: 2px solid hsl(327, 90%, 28%);
+    border-bottom: 2px solid var(--primary);
 }
 
 input::placeholder {
@@ -74,7 +82,7 @@ label {
 input:focus~label,
 input:not(:placeholder-shown)~label {
     top: -3em;
-    color: hsl(327, 90%, 28%);
+    color: var(--primary);
     font-size: 15px;
 }
 
@@ -82,12 +90,11 @@ input:not(:placeholder-shown)~label {
     text-align: right;
     font-size: 1rem;
     margin-bottom: 1rem;
-
 }
 
 .recover a {
     text-decoration: none;
-    color: rgb(125, 125, 235);
+    color: var(--secondary);
 }
 
 .recover a:hover {
@@ -102,14 +109,14 @@ button {
     outline: none;
     border: none;
     width: 100%;
-    background: rgb(125, 125, 235);
+    background: var(--secondary);
     color: white;
     cursor: pointer;
     transition: 0.9s;
 }
 
 button:hover {
-    background: #07001f;
+    background: var(--primary);
 }
 
 .or {
@@ -123,7 +130,7 @@ button:hover {
 }
 
 .icons i {
-    color: rgb(125, 125, 235);
+    color: var(--secondary);
     padding: 0.8rem 1.5rem;
     border-radius: 10px;
     font-size: 1.5rem;
@@ -134,9 +141,9 @@ button:hover {
 }
 
 .icons i:hover {
-    background: #07001f;
+    background: var(--primary);
     font-size: 1.6rem;
-    border: 2px solid rgb(125, 125, 235);
+    border: 2px solid var(--secondary);
 }
 
 .links {
@@ -149,7 +156,7 @@ button:hover {
 
 #signUpButton,
 #signInButton {
-    color: rgb(125, 125, 235);
+    color: var(--secondary);
     border: none;
     background-color: transparent;
     font-size: 1rem;
@@ -163,7 +170,7 @@ button:hover {
 }
 
 .messageDiv {
-    background-color: hsl(327, 90%, 28%);
+    background-color: var(--primary);
     color: white;
     padding: 10px 20px;
     margin: 10px;
@@ -171,5 +178,34 @@ button:hover {
     font-size: 1rem;
     opacity: 0;
     animation: fadeOut 7s forwards;
+}
 
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 1rem;
+    }
+
+    .icons i {
+        padding: 0.6rem 1rem;
+        font-size: 1.2rem;
+    }
+
+    .form-title {
+        font-size: 1.3rem;
+    }
+
+    .recover {
+        font-size: 0.9rem;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 6px 0;
+    }
+
+    .links {
+        padding: 0 2rem;
+        font-size: 0.9rem;
+    }
 }
