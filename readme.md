@@ -165,7 +165,7 @@ We welcome contributions from the community! Please follow these steps to contri
 
 ## **License**
 
-This project is licensed under the MIT License.
+This project is licensed under the weCode License.
 
 ---
 
